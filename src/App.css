@@ -1,4 +1,5 @@
 
+/* STEP 1: GENERAL DESIGN */
 * {
   margin: 0;
   padding: 0;
@@ -8,19 +9,80 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #edefee;
-  color: #333;
+  color: #333333;
+  line-height: 1.6;
 }
 
+/* STEP 2: HEADINGS, PARAGRAPHS AND SPANS */
+
+h1 {
+  font-size: 42px;
+  color: #495e57;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 32px;
+  color: #495e57;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-size: 24px;
+  color: #495e57;
+  margin-bottom: 10px;
+}
+
+h4 {
+  font-size: 20px;
+  color: #495e57;
+  margin-bottom: 10px;
+}
+
+h5 {
+  font-size: 18px;
+  color: #495e57;
+}
+
+h6 {
+  font-size: 16px;
+  color: #495e57;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #333333;
+}
+
+span {
+  color: #495e57;
+  font-weight: bold;
+}
+
+/* HEADER */
+
 .header {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
+  background-color: white;
 }
 
 .logo {
   width: 180px;
+  max-width: 100%;
+  height: auto;
 }
 
+/* STEP 3: NAVIGATION */
+
 .navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #495e57;
   padding: 15px;
 }
@@ -28,26 +90,34 @@ body {
 .navigation ul {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 30px;
   list-style: none;
+}
+
+.navigation li {
+  font-size: 16px;
 }
 
 .navigation a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 .navigation a:hover {
   color: #f4ce14;
 }
 
+/* HERO SECTION */
+
 .hero {
+  text-align: center;
+  padding: 50px 10%;
   background-color: #495e57;
   color: white;
-  padding: 50px 10%;
-  text-align: center;
 }
 
 .hero h1 {
@@ -58,17 +128,27 @@ body {
 .hero p {
   margin: 20px auto;
   max-width: 600px;
+  color: white;
 }
+
+/* RESERVE BUTTON */
 
 .reserve-button {
   display: inline-block;
   background-color: #f4ce14;
-  color: #333;
+  color: #333333;
   padding: 12px 25px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
+  transition: background-color 0.3s ease;
 }
+
+.reserve-button:hover {
+  background-color: #e5bd0c;
+}
+
+/* HIGHLIGHTS SECTION */
 
 .highlights {
   padding: 40px 10%;
@@ -76,19 +156,25 @@ body {
 }
 
 .specials {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
   margin-top: 25px;
 }
+
+/* ARTICLE CARDS */
 
 .specials article {
   background-color: white;
   padding: 25px;
   border-radius: 10px;
-  flex: 1;
-  min-width: 200px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.specials article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .specials h3 {
@@ -96,19 +182,115 @@ body {
   margin-bottom: 10px;
 }
 
+/* STEP 4: IMAGES */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.specials img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* FOOTER */
+
 .footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
   background-color: #495e57;
   color: white;
   padding: 30px;
   text-align: center;
 }
 
+.footer p {
+  color: white;
+}
+
 .footer-logo {
   width: 100px;
-  margin-bottom: 15px;
+  height: auto;
 }
 
 .copyright {
-  margin-top: 20px;
+  width: 100%;
+  margin-top: 15px;
   font-size: 13px;
+  color: white;
+}
+
+/* STEP 6: RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+  .navigation ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .specials {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 35px 5%;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  .highlights {
+    padding: 30px 5%;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 23px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .header {
+    padding: 15px;
+  }
+
+  .logo {
+    width: 150px;
+  }
+
+  .navigation {
+    padding: 12px;
+  }
+
+  .specials article {
+    padding: 18px;
+  }
+
+  .reserve-button {
+    padding: 10px 20px;
+  }
 }
